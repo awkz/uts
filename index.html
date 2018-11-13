@@ -1,0 +1,312 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/onsenui.min.css">
+<link rel="stylesheet" href="css/onsen-css-components.css">
+<script src="js/onsenui.min.js"></script>
+<script src="phonegap.js"></script> 
+<script type="text/javascript" charset="utf-8">
+  function onLoad(){
+    document.addEventListener("deviceready", onDeviceReady, true);
+  }
+  function exitFromApp(){
+    if (confirm("Apakah Yakin Ingin Keluar?")) {
+      navigator.app.exitApp();
+    }
+  }
+</script>
+<script>
+  window.fn = {};
+
+  window.fn.open = function() {
+    var menu = document.getElementById('menu');
+    menu.open();
+  };
+
+  window.fn.load = function(page) {
+    var content = document.getElementById('content');
+    var menu = document.getElementById('menu');
+    content.load(page)
+    .then(menu.close.bind(menu));
+  };
+</script>
+
+<body>
+  <ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+      <ons-page>
+        <div style="height: 150px">
+          <center>
+            <img src="img/news.png" width="100%">
+          </center>
+        </div>
+        <ons-list>
+          <ons-list-item onclick="fn.load('home.html')" tappable>
+            Berita Terbaru
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('kategori.html')" tappable>
+            Kategori
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('about.html')" tappable>
+            About
+          </ons-list-item>
+          <ons-list-item onclick="exitFromApp()" tappable>
+            Keluar
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+  </ons-splitter>
+
+  <template id="home.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Berita Terbaru
+        </div>
+      </ons-toolbar>
+      <ons-card onclick="fn.load('liburan-1.html')">
+        <img src="img/Bali.jpg" alt="Liburan" style="width: 100%">
+        <div class="title">
+          Seorang wisatawan menemukan uang di tepi pantai
+        </div>
+        <div class="subtitle">
+          <small>13 November 2018</small>
+        </div>
+
+        <div class="content">
+          <p>asdasdasdsadasdad</p>
+        </div>
+      </ons-card>
+      <ons-card onclick="fn.load('politik-1.html')">
+        <img src="img/politik.jpg" alt="Liburan" style="width: 100%">
+        <div class="title">
+          Korupsi untuk liburan
+        </div>
+        <div class="subtitle">
+          <small>13 November 2018</small>
+        </div>
+        <div class="content">
+          <p>asdasdasdsadasdad</p>
+        </div>
+      </ons-card>
+    </ons-page>
+  </template>
+
+  <template id="kategori.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Kategori
+        </div>
+      </ons-toolbar>
+      <ons-card>
+       <div class="title">
+        Pilih Kategori
+      </div>
+      <ons-list>
+        <ons-list-item onclick="fn.load('kategori-politik.html')">Politik</ons-list-item>
+        <ons-list-item onclick="fn.load('kategori-liburan.html')">Liburan</ons-list-item>
+        <ons-list-item onclick="fn.load('kategori-teknologi.html')">Teknologi</ons-list-item>
+        <ons-list-item onclick="fn.load('kategori-keuangan.html')">Keuangan</ons-list-item>
+        <ons-list-item onclick="fn.load('kategori-olahraga.html')">Olahraga</ons-list-item>
+      </ons-list>
+    </ons-card>
+    
+  </ons-page>
+</template>
+<template id="kategori-politik.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Kategori Politik
+      </div>
+    </ons-toolbar>
+    <ons-card onclick="fn.load('politik-1.html')">
+      <img src="img/politik.jpg" alt="Liburan" style="width: 100%">
+      <div class="title">
+        Korupsi untuk liburan
+      </div>
+      <div class="subtitle">
+        <small>13 November 2018</small>
+      </div>
+      <div class="content">
+        <p>asdasdasdsadasdad</p>
+      </div>
+    </ons-card>
+    
+  </ons-page>
+</template>
+<template id="kategori-liburan.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Kategori Liburan
+      </div>
+    </ons-toolbar>
+    <ons-card onclick="fn.load('liburan-1.html')">
+      <img src="img/Bali.jpg" alt="Liburan" style="width: 100%">
+      <div class="title">
+        Seorang wisatawan menemukan uang di tepi pantai
+      </div>
+      <div class="subtitle">
+        <small>13 November 2018</small>
+      </div>
+      <div class="content">
+        <p>asdasdasdsadasdad</p>
+      </div>
+    </ons-card>
+  </ons-page>
+</template>
+<template id="kategori-teknologi.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Kategori Teknologi
+      </div>
+    </ons-toolbar>
+    <p style="text-align: center;">Belum Ada Berita</p>
+  </ons-page>
+</template>
+<template id="kategori-keuangan.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Kategori Keuangan
+      </div>
+    </ons-toolbar>
+    <ons-card onclick="fn.load('kategori.html')">
+      <img src="img/Bali.jpg" alt="Liburan" style="width: 100%">
+      <div class="title">
+        Seorang wisatawan menemukan uang di tepi pantai
+      </div>
+      <div class="subtitle">
+        <small>13 November 2018</small>
+      </div>
+      <div class="content">
+        <p>asdasdasdsadasdad</p>
+      </div>
+      <p style="text-align: center;">Belum Ada Berita</p>
+    </ons-page>
+  </template>
+  <template id="kategori-olahraga.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Kategori Olahraga
+        </div>
+      </ons-toolbar>
+      <p style="text-align: center;">Belum Ada Berita</p>
+    </ons-page>
+  </template>
+
+  <template id="liburan-1.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.load('kategori-liburan.html')">
+            <ons-icon icon="md-arrow-left"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Seorang wisatawan menemukan uang di tepi pantai
+        </div>
+      </ons-toolbar>
+      <ons-card>
+        <img src="img/Bali.jpg" alt="Liburan" style="width: 100%">
+        <div class="title">
+          Seorang wisatawan menemukan uang di tepi pantai
+        </div>
+        <div class="subtitle">
+          <small>13 November 2018</small>
+        </div>
+        <div class="content">
+          <p>Onsen UI enriches app users’ mobile experience with natively designed UI elements. It’s perfect for developing hybrid apps using Cordova or developing mobile web apps (also referred to as Progressive Web Apps). For more information on these types of implementation, see Deploy to PWA & Cordova.</p>
+          <p>In the application world, a page is commonly referred as a window or a page view. In Onsen UI, a page is a container that fully covers the viewport (usually a screen). In Onsen UI, a page can be defined by wrapping in ons-page component.</p>
+        </div>
+      </ons-card>
+    </ons-page>
+  </template>
+  <template id="politik-1.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.load('kategori-politik.html')">
+            <ons-icon icon="md-arrow-left"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Korupsi untuk liburan
+        </div>
+      </ons-toolbar>
+      <ons-card>
+        <img src="img/politik.jpg" alt="Liburan" style="width: 100%">
+        <div class="title">
+          Korupsi untuk liburan
+        </div>
+        <div class="subtitle">
+          <small>13 November 2018</small>
+        </div>
+        <div class="content">
+          <p>Onsen UI enriches app users’ mobile experience with natively designed UI elements. It’s perfect for developing hybrid apps using Cordova or developing mobile web apps (also referred to as Progressive Web Apps). For more information on these types of implementation, see Deploy to PWA & Cordova.</p>
+          <p>In the application world, a page is commonly referred as a window or a page view. In Onsen UI, a page is a container that fully covers the viewport (usually a screen). In Onsen UI, a page can be defined by wrapping in ons-page component.</p>
+        </div>
+      </ons-card>
+    </ons-page>
+  </template>
+
+  <template id="about.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          About
+        </div>
+      </ons-toolbar>
+      <ons-card style="text-align: center;">
+        <h2>Bara Ramadhan Asdisusilo</h2>
+        <h3>16.230.0086</h3>
+        <h4>5M51</h4>
+      </ons-card>
+    </ons-page>
+  </template>
+</body>
